@@ -6,8 +6,12 @@ node_js:
   - "4"
 os:
   - osx
+  - linux
 sudo: required
 install:
   - npm i
+  - npm i mocha chai ts-node typings  -g
+  - typings install dt~mocha --global --save
+  - typings install npm~chai --save
 script:
   - npm test
