@@ -2,3 +2,9 @@ src/*/*.js
 src/**/*.js.map
 node_modules
 typings
+.idea
+.DS_Store
+*~
+.npm
+.vscode
+npm-debug.log*
