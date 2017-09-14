@@ -4,7 +4,8 @@
         "allowJs": true,
         "target": "es6",
         "sourceMap": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "moduleResolution": "node"
     },
     "include": [
         "./src/**/*"
