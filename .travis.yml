@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "8"
   - "7"
   - "6"
   - "5"
@@ -9,7 +10,7 @@ os:
   - linux
 install:
   - npm i
-  - npm i mocha chai ts-node typings  -g
+  - npm i mocha chai ts-node typings typescript  -g
   - typings install dt~mocha --global
   - typings install npm~chai
 script:
