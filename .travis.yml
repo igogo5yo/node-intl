@@ -4,10 +4,8 @@ node_js:
   - "7"
   - "6"
   - "5"
-  - "4"
 os:
   - osx
-  - linux
 install:
   - npm i
   - npm i mocha chai ts-node typings typescript  -g
