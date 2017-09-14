@@ -1,15 +1,15 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "allowJs": true,
+        "moduleResolution": "node",
         "target": "es6",
         "sourceMap": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "rootDir": "./src"
     },
-    "include": [
-        "./src/**/*"
-    ],
     "exclude": [
+        "./node_modules",
+        "./dist",
         "./src/__tests__"
     ]
 }
