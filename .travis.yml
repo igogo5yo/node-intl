@@ -7,11 +7,10 @@ node_js:
 os:
   - osx
   - linux
-sudo: required
 install:
   - npm i
   - npm i mocha chai ts-node typings  -g
-  - typings install dt~mocha --global --save
-  - typings install npm~chai --save
+  - typings install dt~mocha --global
+  - typings install npm~chai
 script:
   - npm test
