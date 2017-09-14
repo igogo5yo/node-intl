@@ -70,4 +70,3 @@ var NodeIntl = /** @class */ (function () {
     return NodeIntl;
 }());
 exports.default = NodeIntl;
-//# sourceMappingURL=index.js.map
