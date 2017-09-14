@@ -1,13 +1,17 @@
 language: node_js
 node_js:
+  - "8"
   - "7"
   - "6"
   - "5"
   - "4"
 os:
   - osx
-sudo: required
+  - linux
 install:
   - npm i
+  - npm i mocha chai ts-node typings typescript  -g
+  - typings install dt~mocha --global
+  - typings install npm~chai
 script:
   - npm test
