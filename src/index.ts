@@ -54,7 +54,11 @@ export default class NodeIntl {
     }
 
     formatMessage(messageId: string, formats: object = {}) {
-        const message = new IntlMessageFormat(this.messages[messageId], this.locale);
-        return message.format(formats);
+        try {
+            const message = new IntlMessageFormat(this.messages[messageId], this.locale);
+            return message.format(formats);
+        } catch (err) {
+            return messageId;
+        }
     }
 }

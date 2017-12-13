@@ -64,8 +64,13 @@ var NodeIntl = /** @class */ (function () {
     };
     NodeIntl.prototype.formatMessage = function (messageId, formats) {
         if (formats === void 0) { formats = {}; }
-        var message = new intl_messageformat_1.default(this.messages[messageId], this.locale);
-        return message.format(formats);
+        try {
+            var message = new intl_messageformat_1.default(this.messages[messageId], this.locale);
+            return message.format(formats);
+        }
+        catch (err) {
+            return messageId;
+        }
     };
     return NodeIntl;
 }());

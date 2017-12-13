@@ -58,8 +58,11 @@ describe('NodeIntl test', () => {
         });
     });
 
-
     it('should format message', () => {
         expect(intl.formatMessage('test')).to.equal(mockMessages.test);
+    });
+
+    it('should return message id if no message', () => {
+        expect(intl.formatMessage('no_text')).to.equal('no_text');
     });
 });
