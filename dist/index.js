@@ -12,6 +12,7 @@ var intl_messageformat_1 = require("intl-messageformat");
 var fs = require("fs");
 var NodeIntl = /** @class */ (function () {
     function NodeIntl() {
+        this._messagesMiddlewares = [];
         this._messages = {};
         this._locale = 'en-US';
     }
@@ -27,7 +28,7 @@ var NodeIntl = /** @class */ (function () {
             return this._messages;
         },
         set: function (messages) {
-            this._messages = messages;
+            this._messages = this.processMessages(messages);
         },
         enumerable: true,
         configurable: true
@@ -45,6 +46,15 @@ var NodeIntl = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    NodeIntl.prototype.processMessages = function (messages) {
+        this._messagesMiddlewares.forEach(function (middleware) {
+            messages = middleware(messages);
+        });
+        return messages;
+    };
+    NodeIntl.prototype.addMiddleware = function (midleware) {
+        this._messagesMiddlewares.push(midleware);
+    };
     NodeIntl.prototype.addMessages = function (newMessages) {
         this.messages = __assign({}, this.messages, newMessages);
     };
