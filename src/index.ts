@@ -2,6 +2,7 @@ import IntlMessageFormat from 'intl-messageformat';
 import * as fs from 'fs';
 
 export default class NodeIntl {
+    private _messagesMiddlewares = [];
     private _messages: object = {};
     private _locale: string = 'en-US';
     private static _instance: NodeIntl;
@@ -18,7 +19,7 @@ export default class NodeIntl {
     }
 
     set messages(messages: object) {
-        this._messages = messages;
+        this._messages = this.processMessages(messages);
     }
 
     get locale(): string {
@@ -30,6 +31,18 @@ export default class NodeIntl {
             this._messages = {};
         }
         this._locale = locale;
+    }
+
+    private processMessages(messages) {
+        this._messagesMiddlewares.forEach(middleware => {
+            messages = middleware(messages);
+        });
+
+        return messages;
+    }
+
+    addMiddleware(midleware) {
+        this._messagesMiddlewares.push(midleware);
     }
 
     addMessages(newMessages: object) {

@@ -65,4 +65,10 @@ describe('NodeIntl test', () => {
     it('should return message id if no message', () => {
         expect(intl.formatMessage('no_text')).to.equal('no_text');
     });
+
+    it('should add middleware', () => {
+        intl.addMiddleware(() => ({}));
+        intl.messages = mockMessages;
+        expect(intl.messages).to.deep.equal({});
+    });
 });
