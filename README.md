@@ -13,7 +13,7 @@ Install the package via NPM: `npm i node-intl`.
 ```js
  const intl = NodeIntl.instance; // Create instance
 
- intl.locale = 'ru-RU'; // set locale
+ intl.locale = 'en-US'; // set locale
 
  intl.messages = {...}; // set messages
 
